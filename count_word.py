@@ -8,6 +8,22 @@ from bs4 import BeautifulSoup
 from elasticsearch import Elasticsearch
 import json
 import io
+from flask import Flask
+from flask import render_template
+from flask import request
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('final.html')
+
+@app.route('/final', methods=['POST'])
+    ht = ""
+    
+    if request.method == 'POST'
+	ht = request.form.get()
+    
 es_host="127.0.0.1"
 es_port="9200"
 
