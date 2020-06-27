@@ -19,17 +19,17 @@ def index():
     return render_template('final.html')
 
 @app.route('/final', methods=['POST'])
-    ht = ""
     
     if request.method == 'POST'
-	ht = request.form.get()
-    
+	ht = request.form['ht']
+
+
 es_host="127.0.0.1"
 es_port="9200"
 
 if __name__ == '__main__':
 
-    res = requests.get('http://attic.apache.org/')
+    res = requests.get(ht)
 
     html = BeautifulSoup(res.content, 'html.parser')
 
