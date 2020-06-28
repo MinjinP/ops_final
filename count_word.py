@@ -4,6 +4,7 @@
 import re
 import sys
 import requests
+import time
 from bs4 import BeautifulSoup
 from elasticsearch import Elasticsearch
 import json
@@ -15,15 +16,15 @@ from flask import request
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def final():
     return render_template('final.html')
 
 @app.route('/final', methods=['POST'])   
-def post(num=None):
+def about():
 
     if request.method == 'POST':
         htm = request.form['ht']
-
+        first = time.time()
         res = requests.get(htm)
 
         html = BeautifulSoup(res.content, 'html.parser')
@@ -69,7 +70,9 @@ def post(num=None):
             dic[result[k]] = freq[k]
         
         num1 = len(dic)
-        return render_template('final.html', num = num1)
+        sec = time.time()-first
+        print(sec)
+        return render_template('final.html', num = num1, sec = sec)
 
 
 if __name__ == '__main__':
