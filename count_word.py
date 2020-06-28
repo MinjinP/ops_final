@@ -70,7 +70,7 @@ def about():
         num1 = len(dic)
         sec = time.time()-first
         print(sec)
-        return render_template('final.html', num = num1, sec = sec)
+        return render_template('final.html', url = ht, num = num1, sec = sec)
 
 
 if __name__ == '__main__':
