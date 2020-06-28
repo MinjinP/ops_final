@@ -18,14 +18,11 @@ app = Flask(__name__)
 def index():
     return render_template('final.html')
 
-@app.route('/final', methods=['POST'])   
+@app.route('/about', methods=['POST'])   
 def post(num=None):
 
     if request.method == 'POST':
-        pass
-    elif request.method == 'GET':
-
-        htm = request.args.get('ht')
+        htm = request.form['ht']
 
         res = requests.get(htm)
 
@@ -71,7 +68,8 @@ def post(num=None):
         for k in range(len(result)):
             dic[result[k]] = freq[k]
         
-        return htm
+        num1 = len(dic)
+        return render_template('about.html', num = num1)
 
 
 if __name__ == '__main__':
