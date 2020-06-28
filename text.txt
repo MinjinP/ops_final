@@ -1,0 +1,3 @@
+http://datafu.apache.org/
+https://cassandra.apache.org/
+http://thrift.apache.org/
