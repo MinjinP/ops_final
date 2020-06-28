@@ -18,7 +18,7 @@ app = Flask(__name__)
 def index():
     return render_template('final.html')
 
-@app.route('/about', methods=['POST'])   
+@app.route('/final', methods=['POST'])   
 def post(num=None):
 
     if request.method == 'POST':
@@ -69,7 +69,7 @@ def post(num=None):
             dic[result[k]] = freq[k]
         
         num1 = len(dic)
-        return render_template('about.html', num = num1)
+        return render_template('final.html', num = num1)
 
 
 if __name__ == '__main__':
