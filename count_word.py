@@ -19,7 +19,7 @@ app = Flask(__name__)
 def final():
     return render_template('final.html')
 
-@app.route('/final', methods=['POST'])   
+@app.route('/final', methods=['POST'])
 def about():
 
     if request.method == 'POST':
@@ -29,7 +29,6 @@ def about():
 
         html = BeautifulSoup(res.content, 'html.parser')
 
-  
         data_r = []
 
         datah1 = html.find_all('h1') #'h1' tag
@@ -54,11 +53,10 @@ def about():
         for n in range(len(datali)):
             data_r.extend(datali[n].get_text().lower().split())
 
-    
         text =" ".join(data_r)
 
         line = re.sub('[-=+,#/\?:^$.@©*;\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…》]', '', text)
-    
+
         freq = []
         result.extend(line.split())
 
